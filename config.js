@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/E-comm");
+const MongoURL = `mongodb+srv://palrajan196:rajan@cluster0.mvjvg.mongodb.net/jobsearch?retryWrites=true&w=majority&appName=Cluster0`;
+mongoose.connect(MongoURL);
+
 
 
 

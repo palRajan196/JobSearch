@@ -8,9 +8,16 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 app.use(express.json());
+require("dotenv").config();
+const PORT = process.env.PORT || 6005;
+const FrontEndURL = process.env.FrontEndURL;
+const cloud_Name = process.env.cloud_Name;
+const Api_Key = process.env.Api_Key;
+const Api_Secret = process.env.Api_Secret;
+
 
 const coresOptions = {
-  origin: "http://localhost:5173",
+  origin : FrontEndURL,
   methods: "GET, POST, DELETE, PUT,PATCH, HEAD",
   credentials: true,
 };
@@ -78,10 +85,11 @@ app.delete("/submitdlt/:id", async (req, resp) => {
   resp.send(data);
 });
 
+// Convert Image to a String Formate
 cloudinary.config({
-  cloud_name: "diz0non2m",
-  api_key: "423261783484933",
-  api_secret: "_fl_rhzlflvEJ6Y5J9McdPoVSHY",
+  cloud_name : cloud_Name,
+  api_key : Api_Key,
+  api_secret : Api_Secret,
 });
 
 const uploadResult = async (url) => {
@@ -120,4 +128,4 @@ app.post("/applyJob", upload, async (req, resp) => {
   resp.send(data);
 });
 
-app.listen(6005);
+app.listen(PORT);

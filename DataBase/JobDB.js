@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/E-comm");
+require("dotenv").config();
+const MongoURL = process.env.MongoURL;
+const MongoURL_Local = process.env.MongoURL_Local;
+
+// mongoose.connect(MongoURL_Local);
+mongoose.connect(MongoURL);
+
 const JobSchema = new mongoose.Schema({
   Title: String,
   Category: String,
@@ -11,4 +17,4 @@ const JobSchema = new mongoose.Schema({
   Salary: String,
 });
 
-module.exports = mongoose.model("jobdbs", JobSchema);
+module.exports = mongoose.model("addjobs", JobSchema);

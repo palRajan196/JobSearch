@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/E-comm");
+require("dotenv").config();
+const MongoURL = process.env.MongoURL;
+const MongoURL_Local = process.env.MongoURL_Local;
+
+//mongoose.connect(MongoURL_Local);
+mongoose.connect(MongoURL);
 const ImgSchema = new mongoose.Schema({
   Image: String,
   Name: String,
@@ -9,4 +14,5 @@ const ImgSchema = new mongoose.Schema({
   Id: String,
 });
 
-module.exports = mongoose.model("imagedbs", ImgSchema);
+// module.exports = mongoose.model("imagedbs", ImgSchema);
+module.exports = mongoose.model("submitjobs", ImgSchema);

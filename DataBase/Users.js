@@ -1,8 +1,23 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/E-comm");
+require("dotenv").config();
+const MongoURL = process.env.MongoURL;
+const MongoURL_Local = process.env.MongoURL_Local;
+
+// mongoose.connect(MongoURL_Local);
+mongoose.connect(MongoURL);
 const productSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
+  name:{
+       type:String,
+  },
+  email:{
+       type:String,
+       unique: true,
+  },
+  password:{
+        type:String,
+  },
 });
-module.exports = mongoose.model("products", productSchema);
+//module.exports = mongoose.model("products", productSchema);
+
+module.exports = mongoose.model("logindatas", productSchema);
+
