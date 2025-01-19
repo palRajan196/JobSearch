@@ -52,7 +52,7 @@ app.post("/AddJob", async (req, resp) => {
   resp.send(jobResult);
 });
 
-app.post("/Getjob", async (req, resp) => {
+app.get("/Getjob", async (req, resp) => {
   const getJobs = await Job.find();
   resp.send(getJobs);
 });
