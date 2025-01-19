@@ -129,4 +129,6 @@ app.post("/applyJob", upload, async (req, resp) => {
   resp.send(data);
 });
 
-app.listen(PORT);
+app.listen(PORT,()=>{
+  console.log(`Port is running on ${PORT}`);
+});
