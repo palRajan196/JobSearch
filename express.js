@@ -18,6 +18,7 @@ const Api_Secret = process.env.Api_Secret;
 
 const coresOptions = {
   origin : FrontEndURL,
+//  origin : "https://jobsearchfrontend.onrender.com",
   methods: "GET, POST, DELETE, PUT,PATCH, HEAD",
   credentials: true,
 };
