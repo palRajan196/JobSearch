@@ -58,7 +58,7 @@ app.get("/Getjob", async (req, resp) => {
   resp.send(getJobs);
 });
 
-app.post("/JobsData/:id", async (req, resp) => {
+app.get("/JobsData/:id", async (req, resp) => {
   const jobsData = await Job.findOne({ _id: req.params.id });
   resp.send(jobsData);
 });
