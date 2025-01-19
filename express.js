@@ -16,13 +16,14 @@ const Api_Key = process.env.Api_Key;
 const Api_Secret = process.env.Api_Secret;
 
 
-const coresOptions = {
-  origin : FrontEndURL,
-//  origin : "https://jobsearchfrontend.onrender.com",
-  methods: "GET, POST, DELETE, PUT,PATCH, HEAD",
-  credentials: true,
-};
-app.use(cors(coresOptions));
+// const coresOptions = {
+//   origin : FrontEndURL,
+// //  origin : "https://jobsearchfrontend.onrender.com",
+//   methods: "GET, POST, DELETE, PUT,PATCH, HEAD",
+//   credentials: true,
+// };
+//app.use(cors(coresOptions));
+app.use(cors());
 
 app.post("/Register", async (req, resp) => {
   const productdata = new User(req.body);
